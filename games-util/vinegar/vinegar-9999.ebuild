@@ -18,7 +18,7 @@ HOMEPAGE="https://vinegarhq.github.io"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="pie"
+IUSE="pie +mutexer"
 
 RDEPEND="
     virtual/wine
@@ -26,6 +26,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
     dev-lang/go
+    mutexer? ( dev-util/mingw64-toolchain )
 "
 
 src_compile() {
@@ -34,10 +35,17 @@ src_compile() {
         GOFLAGS+=" -buildmode=pie"
     fi
     emake vinegar
+    if use mutexer ; then
+        PATH="/usr/lib/mingw64-toolchain/bin:${PATH}"
+        emake robloxmutexer
+    fi
 }
 
 src_install() {
     emake DESTDIR="${D}" PREFIX="/usr" install
+    if use mutexer ; then
+        emake DESTDIR="${D}" PREFIX="/usr" install-robloxmutexer
+    fi
 }
 
 pkg_postinst() {
