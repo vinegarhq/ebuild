@@ -37,12 +37,12 @@ src_compile() {
     emake vinegar
     if use mutexer ; then
         PATH="/usr/lib/mingw64-toolchain/bin:${PATH}"
-        emake robloxmutexer
+        emake robloxmutexer.exe
     fi
 }
 
 src_install() {
-    emake DESTDIR="${D}" PREFIX="/usr" install
+    emake DESTDIR="${D}" PREFIX="/usr" install-vinegar install-desktop install-icons
     if use mutexer ; then
         emake DESTDIR="${D}" PREFIX="/usr" install-robloxmutexer
     fi
