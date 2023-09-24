@@ -9,7 +9,7 @@ if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/vinegarhq/vinegar.git"
 else
-	SRC_URI="https://github.com/vinegarhq/vinegar/archive/refs/tags/v${PV}.tar.gz"
+	SRC_URI="https://github.com/vinegarhq/vinegar/releases/download/v${PV}/vinegar-v${PV}.tar.xz"
 	KEYWORDS="amd64"
 fi
 
