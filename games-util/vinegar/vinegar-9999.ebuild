@@ -29,6 +29,15 @@ BDEPEND="
     mutexer? ( dev-util/mingw64-toolchain )
 "
 
+src_unpack() {
+	if [[ "${PV}" == *9999* ]]; then
+		git-r3_src_unpack
+		go-module_live_vendor
+	else
+		go-module_src_unpack
+	fi
+}
+
 src_compile() {
     GOFLAGS="${GOFLAGS}"
     if use pie ; then
