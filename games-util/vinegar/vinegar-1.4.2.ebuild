@@ -26,7 +26,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
     dev-lang/go
-    mutexer? ( dev-util/mingw64-toolchain )
 "
 
 src_compile() {
