@@ -35,7 +35,6 @@ src_compile() {
     fi
     emake vinegar
     if use mutexer ; then
-        PATH="/usr/lib/mingw64-toolchain/bin:${PATH}"
         emake robloxmutexer.exe
     fi
 }
