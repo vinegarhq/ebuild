@@ -19,7 +19,7 @@ HOMEPAGE="https://vinegarhq.github.io"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="pie +mutexer"
+IUSE="+X wayland pie +mutexer vulkan"
 
 RDEPEND="
     virtual/wine
@@ -43,7 +43,23 @@ src_compile() {
     if use pie ; then
         GOFLAGS+=" -buildmode=pie"
     fi
-    emake vinegar
+    VINEGAR_GOFLAGS=""
+    if ! use X ; then
+        VINEGAR_GOFLAGS+=" nox11"
+    fi
+    if ! use wayland ; then
+        VINEGAR_GOFLAGS+=" nowayland"
+    fi
+    if ! use vulkan ; then
+        VINEGAR_GOFLAGS+=" novulkan"
+    fi
+    if ! (use X || use wayland) ; then
+        VINEGAR_GOFLAGS+=" nogui"
+    fi
+    if ! [ -z "$VINEGAR_GOFLAGS" ] ; then
+        VINEGAR_GOFLAGS="-tags \"${VINEGAR_GOFLAGS}\""
+    fi
+    emake VINEGAR_GOFLAGS="${VINEGAR_GOFLAGS}" vinegar
     if use mutexer ; then
         emake robloxmutexer.exe
     fi
