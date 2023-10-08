@@ -19,7 +19,9 @@ HOMEPAGE="https://vinegarhq.github.io"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+X wayland pie +mutexer vulkan"
+IUSE="+X wayland pie +mutexer vulkan video_cards_nvidia"
+
+REQUIRED_USE="video_cards_nvidia? ( !wayland )"
 
 RDEPEND="
     virtual/wine
