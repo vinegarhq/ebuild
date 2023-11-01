@@ -28,7 +28,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-    dev-lang/go
+    >=dev-lang/go-1.21
 "
 
 src_unpack() {
