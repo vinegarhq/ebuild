@@ -29,7 +29,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
     >=dev-lang/go-1.21
-	media-gfx/imagemagick
 "
 
 src_unpack() {
