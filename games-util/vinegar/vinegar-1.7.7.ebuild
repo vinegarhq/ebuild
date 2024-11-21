@@ -19,7 +19,7 @@ HOMEPAGE="https://vinegarhq.github.io"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+X wayland pie +mutexer vulkan +system-wine video_cards_nvidia"
+IUSE="+X wayland pie vulkan +system-wine video_cards_nvidia"
 
 REQUIRED_USE="video_cards_nvidia? ( !wayland )"
 
@@ -62,9 +62,6 @@ src_compile() {
         VINEGAR_GOFLAGS="-tags \"${VINEGAR_GOFLAGS}\""
     fi
     emake VINEGAR_GOFLAGS="${VINEGAR_GOFLAGS}" vinegar
-    if use mutexer ; then
-        emake robloxmutexer.exe
-    fi
 }
 
 src_install() {
