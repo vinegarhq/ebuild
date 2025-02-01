@@ -65,7 +65,7 @@ src_compile() {
 }
 
 src_install() {
-    emake DESTDIR="${D}" PREFIX="/usr" install-vinegar install-desktop install-icons
+    emake DESTDIR="${D}" PREFIX="/usr" install
 }
 
 pkg_postinst() {
