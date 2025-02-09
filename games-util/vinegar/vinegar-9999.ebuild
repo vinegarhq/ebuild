@@ -25,6 +25,8 @@ REQUIRED_USE="video_cards_nvidia? ( !wayland )"
 
 RDEPEND="
     system-wine? ( virtual/wine )
+    gui-libs/gtk:4
+    gui-libs/libadwaita
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
