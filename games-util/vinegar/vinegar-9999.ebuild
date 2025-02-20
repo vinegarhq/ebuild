@@ -21,8 +21,6 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+X wayland pie vulkan +system-wine video_cards_nvidia"
 
-REQUIRED_USE="video_cards_nvidia? ( !wayland )"
-
 RDEPEND="
     system-wine? ( virtual/wine )
     gui-libs/gtk:4
