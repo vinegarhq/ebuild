@@ -19,10 +19,9 @@ HOMEPAGE="https://vinegarhq.github.io"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+X wayland pie vulkan +system-wine video_cards_nvidia"
+IUSE=""
 
 RDEPEND="
-    system-wine? ( virtual/wine )
     gui-libs/gtk:4
     gui-libs/libadwaita
 "
@@ -41,27 +40,10 @@ src_unpack() {
 }
 
 src_compile() {
-    GOFLAGS="${GOFLAGS}"
-    if use pie ; then
+	if use pie ; then
         GOFLAGS+=" -buildmode=pie"
     fi
-    VINEGAR_GOFLAGS=""
-    if ! use X ; then
-        VINEGAR_GOFLAGS+=" nox11"
-    fi
-    if ! use wayland ; then
-        VINEGAR_GOFLAGS+=" nowayland"
-    fi
-    if ! use vulkan ; then
-        VINEGAR_GOFLAGS+=" novulkan"
-    fi
-    if ! (use X || use wayland) ; then
-        VINEGAR_GOFLAGS+=" nogui"
-    fi
-    if ! [ -z "$VINEGAR_GOFLAGS" ] ; then
-        VINEGAR_GOFLAGS="-tags \"${VINEGAR_GOFLAGS}\""
-    fi
-    emake VINEGAR_GOFLAGS="${VINEGAR_GOFLAGS}" vinegar
+    emake vinegar
 }
 
 src_install() {
