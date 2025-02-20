@@ -15,7 +15,7 @@ else
 fi
 
 DESCRIPTION="An open-source, minimal, configurable, fast bootstrapper for running Roblox on Linux"
-HOMEPAGE="https://vinegarhq.github.io"
+HOMEPAGE="https://vinegarhq.org"
 
 LICENSE="GPL-3"
 SLOT="0"
