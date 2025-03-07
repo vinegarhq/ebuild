@@ -40,9 +40,6 @@ src_unpack() {
 }
 
 src_compile() {
-	if use pie ; then
-        GOFLAGS+=" -buildmode=pie"
-    fi
     emake vinegar
 }
 
