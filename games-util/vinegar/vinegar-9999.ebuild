@@ -30,6 +30,10 @@ BDEPEND="
     >=dev-lang/go-1.22
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-multilib.patch"
+)
+
 src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then
 		git-r3_src_unpack
