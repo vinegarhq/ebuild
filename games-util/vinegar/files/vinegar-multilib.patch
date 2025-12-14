@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 8d74d76..20a7743 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,7 +6,7 @@ PREFIX      ?= /usr
+ DATAPREFIX  = $(PREFIX)/share/vinegar
+ APPPREFIX   = $(PREFIX)/share/applications
+ ICONPREFIX  = $(PREFIX)/share/icons/hicolor
+-LIBPREFIX   = $(PREFIX)/lib
++LIBPREFIX   = $(PREFIX)/lib64
+ LAYERPREFIX = $(PREFIX)/share/vulkan/explicit_layer.d
+ 
+ CXX ?= c++
